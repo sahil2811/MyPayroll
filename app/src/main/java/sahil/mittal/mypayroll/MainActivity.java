@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Intent intent=new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
+                customType(MainActivity.this,"left-to-right");
                 finish();
             }
         },SPLASH_SCREEN);

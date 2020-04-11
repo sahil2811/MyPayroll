@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class Login extends AppCompatActivity {
     private EditText textEmail, textPassword;
     private Button btnLogin;
@@ -74,7 +76,8 @@ public class Login extends AppCompatActivity {
                         processBar.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(),Home.class));
+                            customType(Login.this,"left-to-right");
                         }else{
                             Toast.makeText(Login.this, "Login Failed, "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
