@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -25,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button btnLogin;
     private FirebaseAuth fireAuth;
     private ProgressBar processBar;
-
+    private CheckBox remember;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +40,51 @@ public class Login extends AppCompatActivity {
         textPassword = findViewById(R.id.password_text);
         btnLogin = findViewById(R.id.singin_btn);
         processBar = findViewById(R.id.progress);
-
+        remember=findViewById(R.id.checkBox);
 
         //Creating  instance of the firebase aunthetication.
         fireAuth=FirebaseAuth.getInstance();
+
+        SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+        String checkbox=preferences.getString("remember","");
+        if(checkbox.equals("true")){
+            processBar.setVisibility(View.VISIBLE);
+            Intent intent=new Intent(Login.this,Home.class);
+            startActivity(intent);
+        }else if(checkbox.equals("false")){
+            Toast.makeText(this, "please login", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+        //remeber check box
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked())
+                {
+                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("remember","true");
+                    editor.apply();
+                    Toast.makeText(Login.this, "checked", Toast.LENGTH_SHORT).show();
+                }else if(!compoundButton.isChecked()){
+                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("remember","false");
+                    editor.apply();
+                    Toast.makeText(Login.this, "unchecked", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+
+
+
+
 
         //click the login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
