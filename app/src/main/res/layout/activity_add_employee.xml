@@ -30,8 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            app:boxStrokeColor="@color/colorPrimary"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
 
             >
@@ -83,7 +82,6 @@
                 android:ems="25"
                 android:fontFamily="@font/antic"
                 android:hint="contact"
-                android:inputType="text"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -172,7 +170,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_address2"
+            android:id="@+id/input_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -187,10 +185,45 @@
                 android:layout_height="wrap_content"
                 android:ems="25"
                 android:fontFamily="@font/antic"
-                android:hint="Address2"
-                android:inputType="text"
+                android:hint="Age"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/antic"
+                android:text="Add"
+                android:textSize="20dp"
+                android:textStyle="bold">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/antic"
+                android:text="clear"
+                android:textSize="20dp"
+                android:textStyle="bold">
+
+            </Button>
+
+        </LinearLayout>
 
 
     </LinearLayout>
