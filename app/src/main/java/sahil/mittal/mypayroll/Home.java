@@ -34,6 +34,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             case R.id.add_card: i=new Intent(this,AddEmployee.class);
             startActivity(i);
             customType(Home.this,"left-to-right");break;
+
+            case R.id.search_card: i=new Intent(this,SearchEmployee.class);
+            startActivity(i);
+            customType(Home.this,"left-to-right");break;
+
+
+
         }
 
     }

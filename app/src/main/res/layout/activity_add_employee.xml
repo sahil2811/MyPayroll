@@ -66,24 +66,6 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="contact"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_birth"
@@ -189,6 +171,26 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="25"
+                android:fontFamily="@font/antic"
+                android:hint="Contact"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
@@ -211,6 +213,7 @@
             </Button>
 
             <Button
+                android:id="@+id/button_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -224,6 +227,13 @@
             </Button>
 
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/input_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
 
     </LinearLayout>

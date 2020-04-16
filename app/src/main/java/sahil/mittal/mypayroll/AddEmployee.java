@@ -24,28 +24,32 @@ public class AddEmployee extends AppCompatActivity {
     private TextInputLayout inputName,inputEmail,inputContact,inputBirth,inputDepartment,inputPost,inputAddress,inputAge;
     private Button buttonAdd,buttonClear;
     private DatabaseReference reff;
-    long empployeeId=0;
+    EditText a;
+    long employeeId=0;
+    Employees employees;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+        a=(EditText)findViewById(R.id.input_a);
         inputName=findViewById(R.id.input_name);
         inputEmail=findViewById(R.id.input_email);
-        inputContact=findViewById(R.id.input_contact);
+        inputContact=(TextInputLayout)findViewById(R.id.input_contact);
         inputBirth=findViewById(R.id.input_birth);
         inputDepartment=findViewById(R.id.input_department);
         inputAddress=findViewById(R.id.input_address);
-        inputAge=findViewById(R.id.input_age);
+        inputAge=(TextInputLayout) findViewById(R.id.input_age);
         inputPost=findViewById(R.id.input_post);
         buttonAdd=findViewById(R.id.button_add);
-        final Employees employees=new Employees();
+        buttonClear=findViewById(R.id.button_clear);
+        employees=new Employees();
         reff= FirebaseDatabase.getInstance().getReference().child("Employees");
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
                 {
-                    empployeeId=(dataSnapshot.getChildrenCount());
+                    employeeId=(dataSnapshot.getChildrenCount());
 
                 }
             }
@@ -60,22 +64,42 @@ public class AddEmployee extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-               employees.setContact(inputContact.getEditText().getText().toString().trim());
-               employees.setAge(inputAge.getEditText().getText().toString().trim());
-//                Integer Age=Integer.parseInt(inputAge.getEditText().getText().toString());
-
+                int age=Integer.parseInt(inputAge.getEditText().getText().toString().trim());
+                employees.setAge(age);
+                employees.setContact(inputContact.getEditText().getText().toString().trim());
                 employees.setName(inputName.getEditText().getText().toString().trim());
                 employees.setEmail(inputEmail.getEditText().getText().toString().trim());
                 employees.setBirthDate(inputBirth.getEditText().getText().toString().trim());
                 employees.setDepartment(inputDepartment.getEditText().getText().toString().trim());
                 employees.setAddress(inputAddress.getEditText().getText().toString().trim());
                 employees.setPost(inputPost.getEditText().getText().toString().trim());
-//                employees.setContact(Contact);
-//                employees.setAge(Age);
-                reff.child(String.valueOf(empployeeId+1)).setValue(employees);
+
+                reff.child(String.valueOf(employeeId+1)).setValue(employees);
                 Toast.makeText(AddEmployee.this, "Employee Added", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ab="22";
+                reff=FirebaseDatabase.getInstance().getReference().child("Employees").child(ab);
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String name=dataSnapshot.child("name").getValue().toString();
+                        String age=dataSnapshot.child("age").getValue().toString();
+                        a.setText(name);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
 

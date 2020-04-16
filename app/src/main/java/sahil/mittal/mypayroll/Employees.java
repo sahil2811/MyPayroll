@@ -9,7 +9,7 @@ public class Employees {
     private String BirthDate;
     private String Department;
     private String Address;
-    private String Age;
+    private Integer Age;
     private String Post;
 
     public Employees(){
@@ -64,11 +64,11 @@ public class Employees {
         Address = address;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return Age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         Age = age;
     }
 

@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
         String checkbox=preferences.getString("remember","");
         if(checkbox.equals("true")){
             processBar.setVisibility(View.VISIBLE);
-            Intent intent=new Intent(Login.this,Home.class);
+            Intent intent=new Intent(Login.this,ManagementOptions.class);
             startActivity(intent);
         }else if(checkbox.equals("false")){
             Toast.makeText(this, "please login", Toast.LENGTH_SHORT).show();
