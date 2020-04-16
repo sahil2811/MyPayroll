@@ -43,6 +43,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             startActivity(i);
             customType(Home.this,"left-to-right");break;
 
+            case R.id.delete_card: i=new Intent(this,DeleteEmployee.class);
+            startActivity(i);
+            customType(Home.this,"left-to-right");break;
+
         }
 
     }

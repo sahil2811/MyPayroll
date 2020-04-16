@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteEmployee">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antic"
+            android:text="Search Employee "
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            />
+
+
+        <EditText
+            android:id="@+id/input_search"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Enter Employee ID" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_shape"
+            android:text="SEARCH" />
+
+
+
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_shape"
+            android:text="DELETE" />
+
+        <EditText
+            android:id="@+id/input_id"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="ID"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_birth"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="D.O.B"
+            android:background="@drawable/edit_text_shape"
+            />
+
+
+
+
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Name"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_email"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Email"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_contact"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Contact"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_department"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Department"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_post"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Post"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_age"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Age"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_address"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Address"
+            android:background="@drawable/edit_text_shape"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</ScrollView>

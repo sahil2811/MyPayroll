@@ -25,7 +25,7 @@ public class AddEmployee extends AppCompatActivity {
     private Button buttonAdd,buttonClear;
     private DatabaseReference reff;
     EditText a;
-    long employeeId=0;
+    long employeeId=100;
     Employees employees;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,32 +74,9 @@ public class AddEmployee extends AppCompatActivity {
                 employees.setAddress(inputAddress.getEditText().getText().toString().trim());
                 employees.setPost(inputPost.getEditText().getText().toString().trim());
 
-                reff.child(String.valueOf(employeeId+1)).setValue(employees);
+                reff.child(String.valueOf(employeeId+2)).setValue(employees);
                 Toast.makeText(AddEmployee.this, "Employee Added", Toast.LENGTH_SHORT).show();
 
-            }
-        });
-
-        buttonClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String ab="22";
-                reff=FirebaseDatabase.getInstance().getReference().child("Employees").child(ab);
-                reff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String name=dataSnapshot.child("name").getValue().toString();
-                        String age=dataSnapshot.child("age").getValue().toString();
-                        a.setText(name);
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
             }
         });
 
