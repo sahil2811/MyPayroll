@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -19,9 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddEmployee extends AppCompatActivity {
+public class AddEmployee extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    private TextInputLayout inputName,inputEmail,inputContact,inputBirth,inputDepartment,inputPost,inputAddress,inputAge;
+    private TextInputLayout inputName,inputEmail,inputContact,inputBirth,inputPost,inputAddress,inputAge;
+    private Spinner inputDepartment;
     private Button buttonAdd,buttonClear;
     private DatabaseReference reff;
     EditText a;
@@ -31,12 +35,23 @@ public class AddEmployee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+
+
+        Spinner spinner=findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter;
+        adapter = ArrayAdapter.createFromResource(this,R.array.department,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+
+
         a=(EditText)findViewById(R.id.input_a);
         inputName=findViewById(R.id.input_name);
         inputEmail=findViewById(R.id.input_email);
         inputContact=(TextInputLayout)findViewById(R.id.input_contact);
         inputBirth=findViewById(R.id.input_birth);
-        inputDepartment=findViewById(R.id.input_department);
+        inputDepartment=findViewById(R.id.spinner1);
         inputAddress=findViewById(R.id.input_address);
         inputAge=(TextInputLayout) findViewById(R.id.input_age);
         inputPost=findViewById(R.id.input_post);
@@ -70,7 +85,8 @@ public class AddEmployee extends AppCompatActivity {
                 employees.setName(inputName.getEditText().getText().toString().trim());
                 employees.setEmail(inputEmail.getEditText().getText().toString().trim());
                 employees.setBirthDate(inputBirth.getEditText().getText().toString().trim());
-                employees.setDepartment(inputDepartment.getEditText().getText().toString().trim());
+//                employees.setDepartment(inputDepartment.getEditText().getText().toString().trim());
+                employees.setDepartment(inputDepartment.getSelectedItem().toString());
                 employees.setAddress(inputAddress.getEditText().getText().toString().trim());
                 employees.setPost(inputPost.getEditText().getText().toString().trim());
 
@@ -79,6 +95,16 @@ public class AddEmployee extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }
