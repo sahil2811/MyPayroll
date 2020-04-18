@@ -33,7 +33,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.add_card: i=new Intent(this,AddEmployee.class);
             startActivity(i);
-            customType(Home.this,"left-to-right");break;
+            customType(Home.this,"left-to-right");
+            break;
 
             case R.id.search_card: i=new Intent(this,SearchEmployee.class);
             startActivity(i);
@@ -48,6 +49,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             customType(Home.this,"left-to-right");break;
 
         }
+
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        customType(Home.this,"right-to-left");
 
     }
 }
