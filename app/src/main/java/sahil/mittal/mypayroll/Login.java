@@ -49,8 +49,9 @@ public class Login extends AppCompatActivity {
         String checkbox=preferences.getString("remember","");
         if(checkbox.equals("true")){
             processBar.setVisibility(View.VISIBLE);
-            Intent intent=new Intent(Login.this,ManagementOptions.class);
+            Intent intent=new Intent(Login.this,Dashboard.class);
             startActivity(intent);
+            finish();
         }else if(checkbox.equals("false")){
             Toast.makeText(this, "please login", Toast.LENGTH_SHORT).show();
         }
@@ -68,13 +69,11 @@ public class Login extends AppCompatActivity {
                     SharedPreferences.Editor editor=preferences.edit();
                     editor.putString("remember","true");
                     editor.apply();
-                    Toast.makeText(Login.this, "checked", Toast.LENGTH_SHORT).show();
                 }else if(!compoundButton.isChecked()){
                     SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
                     SharedPreferences.Editor editor=preferences.edit();
                     editor.putString("remember","false");
                     editor.apply();
-                    Toast.makeText(Login.this, "unchecked", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -120,8 +119,9 @@ public class Login extends AppCompatActivity {
                         processBar.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),Home.class));
+                            startActivity(new Intent(getApplicationContext(),Dashboard.class));
                             customType(Login.this,"left-to-right");
+                            finish();
                         }else{
                             Toast.makeText(Login.this, "Login Failed, "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }

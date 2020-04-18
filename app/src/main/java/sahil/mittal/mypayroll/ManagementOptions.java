@@ -26,7 +26,6 @@ public class ManagementOptions extends AppCompatActivity {
                 Intent intent=new Intent(ManagementOptions.this, Home.class);
                 startActivity(intent);
                 customType(ManagementOptions.this,"left-to-right");
-                finish();
             }
         });
 
