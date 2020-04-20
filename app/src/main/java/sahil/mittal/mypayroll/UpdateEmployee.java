@@ -60,7 +60,6 @@ public class UpdateEmployee extends AppCompatActivity {
                             String department = dataSnapshot.child("department").getValue().toString();
                             String post1 = dataSnapshot.child("post").getValue().toString();
                             String address = dataSnapshot.child("address").getValue().toString();
-                            String birthDate=dataSnapshot.child("birthDate").getValue().toString();
 
                             inputId.setText(id);
                             inputName.setText(name);
@@ -70,7 +69,6 @@ public class UpdateEmployee extends AppCompatActivity {
                             inputAge.setText(age);
                             inputPost.setText(post1);
                             inputAddress.setText(address);
-                            inputDob.setText(birthDate);
                         }else
                         {
                             Toast.makeText(UpdateEmployee.this, "Employee not exists", Toast.LENGTH_SHORT).show();
@@ -95,7 +93,6 @@ public class UpdateEmployee extends AppCompatActivity {
                 map.put("department",inputDepartment.getText().toString());
                 map.put("age",inputAge.getText().toString());
                 map.put("address",inputAddress.getText().toString());
-                map.put("birthDate",inputDob.getText().toString());
                 map.put("post",inputPost.getText().toString());
 
 

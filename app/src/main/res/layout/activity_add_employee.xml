@@ -25,82 +25,44 @@
             android:textAlignment="center"
             />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            app:boxStrokeColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Name"
+            android:background="@drawable/edit_text_shape"
+            />
 
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Full name"
-                android:inputType="text"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_email"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Email"
-                android:inputType="text"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="55dp"
+            android:hint="Email"
+            android:background="@drawable/edit_text_shape"
+            />
 
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_birth"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="D.o.b"
-                android:inputType="text"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
-
+            android:layout_height="55dp"
+            android:hint="D.o.b"
+            android:background="@drawable/edit_text_shape"
+            />
 
         <Spinner
-            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_spinner"
             android:id="@+id/spinner1"
-            android:layout_width="306dp"
-            android:layout_height="38dp"
-            android:scrollbarThumbHorizontal="@android:color/black"
-            android:scrollbarThumbVertical="@color/common_google_signin_btn_text_dark_focused"
+            android:entries="@array/department"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
             android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+
+            >
 
 
         </Spinner>
@@ -133,87 +95,52 @@
 <!--                android:textStyle="bold" />-->
 <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-        <com.google.android.material.textfield.TextInputLayout
+
+        <EditText
             android:id="@+id/input_post"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_height="55dp"
+            android:hint="Post"
+            android:background="@drawable/edit_text_shape"
+            />
 
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Post"
-                android:inputType="text"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_address"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_height="55dp"
+            android:hint="Address"
+            android:background="@drawable/edit_text_shape"
+            />
 
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Address"
-                android:inputType="text"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_age"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_height="55dp"
+            android:hint="Age"
+            android:background="@drawable/edit_text_shape"
+            />
 
-            >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Age"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/input_contact"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_height="55dp"
+            android:hint="Contact"
+            android:background="@drawable/edit_text_shape"
+            />
 
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="25"
-                android:fontFamily="@font/antic"
-                android:hint="Contact"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/input_Salary"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Salary"
+            android:background="@drawable/edit_text_shape"
+            />
 
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -228,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorFav"
                 android:fontFamily="@font/antic"
                 android:text="Add"
                 android:textSize="20dp"
@@ -242,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorFav"
                 android:fontFamily="@font/antic"
                 android:text="clear"
                 android:textSize="20dp"
@@ -251,13 +178,6 @@
             </Button>
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/input_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
 
 
     </LinearLayout>

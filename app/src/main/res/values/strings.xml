@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">My Payroll</string>
-
-    <string-array name="department">
+    <array name="department">
+        <item>""</item>
         <item>Sales</item>
         <item>Testing</item>
         <item>Developing</item>
-    </string-array>
+    </array>
 </resources>

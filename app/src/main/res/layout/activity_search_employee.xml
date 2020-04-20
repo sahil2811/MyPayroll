@@ -39,10 +39,11 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/edit_text_shape"
+                android:background="@color/colorFav"
                 android:text="SEARCH" />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_id"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -52,6 +53,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_name"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -61,6 +63,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_email"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -70,6 +73,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_contact"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -79,6 +83,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_department"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -88,6 +93,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_post"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -97,6 +103,7 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_age"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -106,11 +113,22 @@
             />
 
         <EditText
+            android:editable="false"
             android:id="@+id/input_address"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Address"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_Salary"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Salary"
             android:background="@drawable/edit_text_shape"
             />
 

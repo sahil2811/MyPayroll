@@ -1,82 +1,62 @@
 package sahil.mittal.mypayroll;
 
-import java.util.Date;
-
 public class Employees {
-    private String Name;
-    private String Email;
-    private String Contact;
-    private String BirthDate;
-    private String Department;
-    private String Address;
-    private Integer Age;
-    private String Post;
+    String id,name,email,dob,department,post,address,age,contact,salary;
 
     public Employees(){
 
     }
 
-    public String getName() {
-        return Name;
+    public Employees(String id,String name, String email, String dob, String department, String post, String address, String age, String contact, String salary) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+        this.department = department;
+        this.post = post;
+        this.address = address;
+        this.age = age;
+        this.contact = contact;
+        this.salary = salary;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getContact() {
-        return Contact;
-    }
-
-    public void setContact(String contact) {
-        Contact = contact;
-    }
-
-    public String getBirthDate() {
-        return BirthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        BirthDate = birthDate;
+    public String getDob() {
+        return dob;
     }
 
     public String getDepartment() {
-        return Department;
-    }
-
-    public void setDepartment(String department) {
-        Department = department;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public Integer getAge() {
-        return Age;
-    }
-
-    public void setAge(Integer age) {
-        Age = age;
+        return department;
     }
 
     public String getPost() {
-        return Post;
+        return post;
     }
 
-    public void setPost(String post) {
-        Post = post;
+    public String getAddress() {
+        return address;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getSalary() {
+        return salary;
     }
 }

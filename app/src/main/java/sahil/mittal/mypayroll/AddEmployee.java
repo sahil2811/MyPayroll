@@ -1,9 +1,7 @@
 package sahil.mittal.mypayroll;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,99 +10,116 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Calendar;
-import java.util.Date;
+public class AddEmployee extends AppCompatActivity  {
 
-public class AddEmployee extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
-    private TextInputLayout inputName,inputEmail,inputContact,inputBirth,inputPost,inputAddress,inputAge;
+    private EditText inputName, inputEmail, inputContact, inputBirth, inputPost, inputAddress, inputAge, inputSalary;
     private Spinner inputDepartment;
-    private Button buttonAdd,buttonClear;
+    private Button buttonAdd, buttonClear;
     private DatabaseReference reff;
-    EditText a;
-    long employeeId=100;
+    long employeeId = 0;
     Employees employees;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
 
 
-        Spinner spinner=findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter;
-        adapter = ArrayAdapter.createFromResource(this,R.array.department,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        //Connecting to attributes of AddEmployee xml file.
+        inputName = findViewById(R.id.input_name);
+        inputEmail = findViewById(R.id.input_email);
+        inputBirth = findViewById(R.id.input_birth);
+        inputDepartment = findViewById(R.id.spinner1);
+        inputPost = findViewById(R.id.input_post);
+        inputAddress = findViewById(R.id.input_address);
+        inputAge = findViewById(R.id.input_age);
+        inputContact = findViewById(R.id.input_contact);
+        inputSalary = findViewById(R.id.input_Salary);
+        buttonAdd = findViewById(R.id.button_add);
+        buttonClear = findViewById(R.id.button_clear);
+        //Database refrence
+        reff=FirebaseDatabase.getInstance().getReference("Employees");
 
-
-
-        a=(EditText)findViewById(R.id.input_a);
-        inputName=findViewById(R.id.input_name);
-        inputEmail=findViewById(R.id.input_email);
-        inputContact=(TextInputLayout)findViewById(R.id.input_contact);
-        inputBirth=findViewById(R.id.input_birth);
-        inputDepartment=findViewById(R.id.spinner1);
-        inputAddress=findViewById(R.id.input_address);
-        inputAge=(TextInputLayout) findViewById(R.id.input_age);
-        inputPost=findViewById(R.id.input_post);
-        buttonAdd=findViewById(R.id.button_add);
-        buttonClear=findViewById(R.id.button_clear);
-        employees=new Employees();
-        reff= FirebaseDatabase.getInstance().getReference().child("Employees");
+        //Generate Custom unique EmployeeID
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                {
-                    employeeId=(dataSnapshot.getChildrenCount());
-
+                if (dataSnapshot.exists()) {
+                    employeeId = (dataSnapshot.getChildrenCount());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
-        //Add employye button
+
+        //Add employee button
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int age=Integer.parseInt(inputAge.getEditText().getText().toString().trim());
-                employees.setAge(age);
-                employees.setContact(inputContact.getEditText().getText().toString().trim());
-                employees.setName(inputName.getEditText().getText().toString().trim());
-                employees.setEmail(inputEmail.getEditText().getText().toString().trim());
-                employees.setBirthDate(inputBirth.getEditText().getText().toString().trim());
-//                employees.setDepartment(inputDepartment.getEditText().getText().toString().trim());
-                employees.setDepartment(inputDepartment.getSelectedItem().toString());
-                employees.setAddress(inputAddress.getEditText().getText().toString().trim());
-                employees.setPost(inputPost.getEditText().getText().toString().trim());
-
-                reff.child(String.valueOf(employeeId+2)).setValue(employees);
-                Toast.makeText(AddEmployee.this, "Employee Added", Toast.LENGTH_SHORT).show();
-
+                AddEmployee();
             }
         });
 
+
+        //Clear employees button
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearEmployees();
+            }
+        });
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+    //Clear Button
+    private void ClearEmployees(){
+        inputName.setText("");
+        inputEmail.setText("");
+        inputContact.setText("");
+        inputAge.setText("");
+        inputAddress.setText("");
+        inputPost.setText("");
+        inputSalary.setText("");
+        inputBirth.setText("");
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    private void AddEmployee(){
+        String name=inputName.getText().toString().trim();
+        String email=inputEmail.getText().toString().trim();
+        String dob=inputBirth.getText().toString().trim();
+        String department=inputDepartment.getSelectedItem().toString().trim();
+        String post=inputPost.getText().toString().trim();
+        String address=inputAddress.getText().toString().trim();
+        String age=inputAge.getText().toString().trim();
+        String contact=inputContact.getText().toString().trim();
+        String salary=inputSalary.getText().toString().trim();
+
+        //Validtion of Input field
+        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(dob)
+                && !TextUtils.isEmpty(department) && !TextUtils.isEmpty(post) && !TextUtils.isEmpty(address)
+                && !TextUtils.isEmpty(age) && !TextUtils.isEmpty(contact) && !TextUtils.isEmpty(salary))
+        {
+            String id=reff.child(String.valueOf(employeeId + 1)).getKey();
+            Employees employees=new Employees(id,name,email,dob,department,post,address,age,contact,salary);
+
+            reff.child(String.valueOf(employeeId + 1)).setValue(employees);
+
+            Toast.makeText(AddEmployee.this, "Employee Added", Toast.LENGTH_SHORT).show();
+
+        }else{
+            Toast.makeText(this, "Please complete details", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }

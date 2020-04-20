@@ -14,7 +14,6 @@
         <activity android:name=".Dashboard"></activity>
         <activity android:name=".DeleteEmployee" />
         <activity android:name=".UpdateEmployee" />
-        <activity android:name=".ManagementOptions" />
         <activity android:name=".SearchEmployee" />
         <activity android:name=".AddEmployee" />
         <activity android:name=".Home" />

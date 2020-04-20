@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SearchEmployee extends AppCompatActivity {
 
-    TextView inputName, inputEmail, inputId, inputContact, inputDepartment, inputPost, inputAge, inputAddress, searchID;
+    TextView inputName,inputSalary,inputEmail, inputId, inputContact, inputDepartment, inputPost, inputAge, inputAddress, searchID;
     Button searchButton;
     DatabaseReference reff;
     String id;
@@ -38,9 +38,7 @@ public class SearchEmployee extends AppCompatActivity {
         inputAge = findViewById(R.id.input_age);
         inputAddress = findViewById(R.id.input_address);
         inputPost = findViewById(R.id.input_post);
-
-
-
+        inputSalary=findViewById(R.id.input_Salary);
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -48,38 +46,46 @@ public class SearchEmployee extends AppCompatActivity {
             public void onClick(View v) {
                 id=searchID.getText().toString();
                 reff = FirebaseDatabase.getInstance().getReference().child("Employees").child(id);
-                reff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists()) {
-                            String name = dataSnapshot.child("name").getValue().toString();
-                            String age = dataSnapshot.child("age").getValue().toString();
-                            String email = dataSnapshot.child("email").getValue().toString();
-                            String contact = dataSnapshot.child("contact").getValue().toString();
-                            String department = dataSnapshot.child("department").getValue().toString();
-                            String post1 = dataSnapshot.child("post").getValue().toString();
-                            String address = dataSnapshot.child("address").getValue().toString();
-
-                            inputId.setText(id);
-                            inputName.setText(name);
-                            inputEmail.setText(email);
-                            inputContact.setText(contact);
-                            inputDepartment.setText(department);
-                            inputAge.setText(age);
-                            inputPost.setText(post1);
-                            inputAddress.setText(address);
-                        }else
-                        {
-                            Toast.makeText(SearchEmployee.this, "Employee not exists", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                Search();
             }
         });
     }
+
+
+    public void Search(){
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    String name = dataSnapshot.child("name").getValue().toString();
+                    String age = dataSnapshot.child("age").getValue().toString();
+                    String email = dataSnapshot.child("email").getValue().toString();
+                    String contact = dataSnapshot.child("contact").getValue().toString();
+                    String department = dataSnapshot.child("department").getValue().toString();
+                    String post1 = dataSnapshot.child("post").getValue().toString();
+                    String address = dataSnapshot.child("address").getValue().toString();
+                    String salary=dataSnapshot.child("salary").getValue().toString();
+
+                    inputId.setText(id);
+                    inputName.setText(name);
+                    inputEmail.setText(email);
+                    inputContact.setText(contact);
+                    inputDepartment.setText(department);
+                    inputAge.setText(age);
+                    inputPost.setText(post1);
+                    inputAddress.setText(address);
+                    inputSalary.setText(salary);
+                }else
+                {
+                    Toast.makeText(SearchEmployee.this, "Employee not exists", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }
