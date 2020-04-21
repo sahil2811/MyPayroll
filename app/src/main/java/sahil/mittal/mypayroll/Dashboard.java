@@ -30,7 +30,7 @@ public class Dashboard extends AppCompatActivity {
     private static final int CHOOSE_IMAGE = 101;
     private ImageView adminImage;
     private TextView adminName;
-    private CardView manage_Card,search_Card;
+    private CardView manage_Card,search_Card,total_Card;
 
     Uri uriProfileImage;
     DatabaseReference reff;
@@ -47,6 +47,7 @@ public class Dashboard extends AppCompatActivity {
         reff= FirebaseDatabase.getInstance().getReference().child(USERS);
         manage_Card=findViewById(R.id.manageCard);
         search_Card=findViewById(R.id.search_card);
+        total_Card=findViewById(R.id.Total_card);
 
         manage_Card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,15 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Dashboard.this, SearchEmployee.class);
+                startActivity(intent);
+                customType(Dashboard.this,"fadein-to-fadeout");
+            }
+        });
+
+        total_Card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashboard.this, TotalEmployee.class);
                 startActivity(intent);
                 customType(Dashboard.this,"fadein-to-fadeout");
             }
