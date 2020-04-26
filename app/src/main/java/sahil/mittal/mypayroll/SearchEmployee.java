@@ -3,10 +3,10 @@ package sahil.mittal.mypayroll;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +22,7 @@ public class SearchEmployee extends AppCompatActivity {
     Button searchButton;
     DatabaseReference reff;
     String id;
-
+    ProgressDialog mProgressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class SearchEmployee extends AppCompatActivity {
         searchID = findViewById(R.id.input_search);
         searchButton = findViewById(R.id.button_search);
         inputId = findViewById(R.id.input_id);
-        inputName = findViewById(R.id.input_name);
+        inputName = findViewById(R.id.input_allowance);
         inputContact = findViewById(R.id.input_contact);
         inputEmail = findViewById(R.id.input_email);
         inputDepartment = findViewById(R.id.input_department);
@@ -44,6 +44,16 @@ public class SearchEmployee extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Intialize progress dialog
+                mProgressDialog=new ProgressDialog(SearchEmployee.this);
+                //show dialog
+                mProgressDialog.show();
+                //set content view
+                mProgressDialog.setContentView(R.layout.progress_dialog);
+                //set transparent background
+                mProgressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
                 id=searchID.getText().toString();
                 reff = FirebaseDatabase.getInstance().getReference().child("Employees").child(id);
                 Search();
@@ -75,9 +85,12 @@ public class SearchEmployee extends AppCompatActivity {
                     inputPost.setText(post1);
                     inputAddress.setText(address);
                     inputSalary.setText(salary);
+
+                    mProgressDialog.dismiss();
                 }else
                 {
                     Toast.makeText(SearchEmployee.this, "Employee not exists", Toast.LENGTH_SHORT).show();
+                    mProgressDialog.dismiss();
                 }
             }
 

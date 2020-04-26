@@ -1,10 +1,9 @@
 package sahil.mittal.mypayroll;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -27,12 +26,14 @@ public class AddEmployee extends AppCompatActivity  {
     private DatabaseReference reff;
     long employeeId = 0;
     Employees employees;
+    ProgressDialog mProgressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+
 
 
         //Connecting to attributes of AddEmployee xml file.
@@ -68,6 +69,16 @@ public class AddEmployee extends AppCompatActivity  {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Intialize progress dialog
+                mProgressDialog=new ProgressDialog(AddEmployee.this);
+                //show dialog
+                mProgressDialog.show();
+                //set content view
+                mProgressDialog.setContentView(R.layout.progress_dialog);
+                //set transparent background
+                mProgressDialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
                 AddEmployee();
             }
         });
@@ -112,13 +123,13 @@ public class AddEmployee extends AppCompatActivity  {
         {
             String id=reff.child(String.valueOf(employeeId + 1)).getKey();
             Employees employees=new Employees(id,name,email,dob,department,post,address,age,contact,salary);
-
             reff.child(String.valueOf(employeeId + 1)).setValue(employees);
-
             Toast.makeText(AddEmployee.this, "Employee Added", Toast.LENGTH_SHORT).show();
+            mProgressDialog.dismiss();
 
         }else{
             Toast.makeText(this, "Please complete details", Toast.LENGTH_SHORT).show();
+            mProgressDialog.dismiss();
         }
 
     }

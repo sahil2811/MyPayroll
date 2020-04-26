@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateEmployee">
-
-
+    tools:context=".Allowance">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/antic"
-            android:text="Update Employee "
+            android:text="Allowance "
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -35,25 +33,57 @@
             android:background="@drawable/edit_text_shape"
             android:hint="Enter Employee ID" />
 
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_allowanceDate"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Allowance Date"
+            android:background="@drawable/edit_text_shape"
+            />
+
         <Button
             android:id="@+id/button_search"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/edit_text_shape"
+            android:background="@color/colorFav"
             android:text="SEARCH" />
+
+        <Button
+            android:id="@+id/button_allowanceCalculate"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorFav"
+            android:text="Calculate" />
+
+
 
 
 
         <Button
-            android:id="@+id/button_update"
+            android:id="@+id/button_save"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/edit_text_shape"
-            android:text="UPDATE" />
+            android:background="@color/colorFav"
+            android:text="Save" />
 
         <EditText
+            android:editable="false"
+            android:id="@+id/input_calculate"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Total Allowance"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:editable="false"
             android:id="@+id/input_id"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -64,42 +94,16 @@
 
 
         <EditText
-            android:id="@+id/input_allowance"
-            android:layout_marginTop="20dp"
+            android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Name"
-            android:background="@drawable/edit_text_shape"
-            />
-
-        <EditText
-            android:id="@+id/input_email"
             android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="Email"
             android:background="@drawable/edit_text_shape"
-            />
+            android:editable="false"
+            android:hint="Name" />
 
         <EditText
-            android:id="@+id/input_contact"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="Contact"
-            android:background="@drawable/edit_text_shape"
-            />
-
-        <EditText
-            android:id="@+id/input_department"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="Department"
-            android:background="@drawable/edit_text_shape"
-            />
-
-        <EditText
+            android:editable="false"
             android:id="@+id/input_post"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -108,29 +112,62 @@
             android:background="@drawable/edit_text_shape"
             />
 
+
         <EditText
-            android:id="@+id/input_age"
+            android:editable="false"
+            android:id="@+id/input_Salary"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Age"
+            android:hint="Salary"
+            android:background="@drawable/edit_text_shape"
+            />
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_Hra"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Hra"
+            android:background="@drawable/edit_text_shape"
+            />
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_Bonus"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Bonus"
             android:background="@drawable/edit_text_shape"
             />
 
+
         <EditText
-            android:id="@+id/input_address"
+            android:editable="false"
+            android:id="@+id/input_Da"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Address"
+            android:hint="Da"
             android:background="@drawable/edit_text_shape"
             />
+
+
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_Medical"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Medical"
+            android:background="@drawable/edit_text_shape"
+            />
+
+
+
+
 
 
     </LinearLayout>
-
-
-
-
-
 </ScrollView>

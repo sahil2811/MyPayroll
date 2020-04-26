@@ -35,7 +35,7 @@ public class UpdateEmployee extends AppCompatActivity {
         searchButton = findViewById(R.id.button_search);
         updateButton= findViewById(R.id.button_update);
         inputId = findViewById(R.id.input_id);
-        inputName = findViewById(R.id.input_name);
+        inputName = findViewById(R.id.input_allowance);
         inputContact = findViewById(R.id.input_contact);
         inputEmail = findViewById(R.id.input_email);
         inputDepartment = findViewById(R.id.input_department);

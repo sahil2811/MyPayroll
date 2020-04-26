@@ -32,7 +32,7 @@ public class DeleteEmployee extends AppCompatActivity {
         searchID = findViewById(R.id.input_search);
         searchButton = findViewById(R.id.button_search);
         inputId = findViewById(R.id.input_id);
-        inputName = findViewById(R.id.input_name);
+        inputName = findViewById(R.id.input_allowance);
         inputContact = findViewById(R.id.input_contact);
         inputEmail = findViewById(R.id.input_email);
         inputDepartment = findViewById(R.id.input_department);

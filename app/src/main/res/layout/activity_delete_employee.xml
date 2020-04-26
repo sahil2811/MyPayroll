@@ -62,20 +62,9 @@
             android:background="@drawable/edit_text_shape"
             />
 
-        <EditText
-            android:id="@+id/input_birth"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="D.O.B"
-            android:background="@drawable/edit_text_shape"
-            />
-
-
-
 
         <EditText
-            android:id="@+id/input_name"
+            android:id="@+id/input_allowance"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
