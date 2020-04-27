@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Deduction">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antic"
+            android:text="Deduction"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            />
+
+
+        <EditText
+            android:id="@+id/input_search"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Enter Employee ID" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorFav"
+            android:text="SEARCH" />
+
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_id"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="ID"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_name"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Name"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_email"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Email"
+            android:background="@drawable/edit_text_shape"
+            />
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Per Day : 1500 "
+            android:textSize="30dp"
+            />
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_allowanceDate"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Allowance Date"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <EditText
+            android:id="@+id/input_leaveDays"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Leave days"
+            android:background="@drawable/edit_text_shape"
+            />
+
+
+        <EditText
+            android:editable="false"
+            android:id="@+id/input_Amount"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Total Deduction"
+            android:background="@drawable/edit_text_shape"
+            />
+
+        <Button
+            android:id="@+id/button_calculate"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorFav"
+            android:text="Calculate Amount" />
+
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorFav"
+            android:text="save" />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

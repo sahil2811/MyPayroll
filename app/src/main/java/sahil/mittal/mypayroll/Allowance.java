@@ -165,10 +165,9 @@ public class Allowance extends AppCompatActivity {
                 String salary=inputSalary.getText().toString().trim();
                 String allowance=inputTotalAllownce.getText().toString().trim();
                 String allowanceDate=inputDate.getText().toString().trim();
-
-                String AllowanceId=allowanceRef.push().getKey();
-                saveAllowance save=new saveAllowance(id,allowanceDate,AllowanceId,name,post,salary,allowance);
-                allowanceRef.push().setValue(save);
+                ;
+                saveAllowance save=new saveAllowance(id,allowanceDate,name,post,salary,allowance);
+                allowanceRef.child(id).setValue(save);
                 Toast.makeText(Allowance.this, "Employee Added", Toast.LENGTH_SHORT).show();
             }
         });

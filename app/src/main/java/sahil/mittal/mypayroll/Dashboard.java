@@ -81,7 +81,7 @@ public class Dashboard extends AppCompatActivity {
         payroll_Card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Dashboard.this, Allowance.class);
+                Intent intent=new Intent(Dashboard.this, ManagePayroll.class);
                 startActivity(intent);
                 customType(Dashboard.this,"fadein-to-fadeout");
             }

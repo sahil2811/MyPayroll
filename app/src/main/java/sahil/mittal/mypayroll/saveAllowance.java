@@ -1,15 +1,14 @@
 package sahil.mittal.mypayroll;
 
 public class saveAllowance {
-    String id,AllowanceId,name,post,salary,allowance,allowanceDate;
+    String id,name,post,salary,allowance,allowanceDate;
 
 
     public saveAllowance() {
     }
 
-    public saveAllowance(String id,String allowanceDate,String AllowanceId, String name, String post, String salary, String allowance) {
+    public saveAllowance(String id,String allowanceDate, String name, String post, String salary, String allowance) {
         this.id = id;
-        this.AllowanceId=AllowanceId;
         this.name = name;
         this.post = post;
         this.salary = salary;
@@ -24,14 +23,6 @@ public class saveAllowance {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getAllowanceId() {
-        return AllowanceId;
-    }
-
-    public void setAllowanceId(String allowanceId) {
-        AllowanceId = allowanceId;
     }
 
     public String getAllowanceDate() {
