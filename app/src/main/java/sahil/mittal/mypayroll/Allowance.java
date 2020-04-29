@@ -27,6 +27,8 @@ public class Allowance extends AppCompatActivity {
             ,inputTotalAllownce,inputDate;
     Button searchButton,addButton,saveButton;
     String finalAllowance,date;
+    int month;
+    String salaryMonth;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     DatabaseReference reff,postRef,allowanceRef;
     String id,post;
@@ -135,7 +137,7 @@ public class Allowance extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal= Calendar.getInstance();
                 int year =cal.get(Calendar.YEAR);
-                int month =cal.get(Calendar.MONTH);
+                 month =cal.get(Calendar.MONTH);
                 int day =cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog=new DatePickerDialog(Allowance.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth
@@ -149,23 +151,26 @@ public class Allowance extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 month=month+1;
+                salaryMonth=String.valueOf(month);
                 date=month+"/"+day+"/"+year;
                 inputDate.setText(date);
+
             }
         };
+
+
 
 
 
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                allowanceRef=FirebaseDatabase.getInstance().getReference("Allowances");
+                allowanceRef=FirebaseDatabase.getInstance().getReference("Allowances").child(salaryMonth);
                 String name=inputName.getText().toString().trim();
                 String post=inputPost.getText().toString().trim();
                 String salary=inputSalary.getText().toString().trim();
                 String allowance=inputTotalAllownce.getText().toString().trim();
                 String allowanceDate=inputDate.getText().toString().trim();
-                ;
                 saveAllowance save=new saveAllowance(id,allowanceDate,name,post,salary,allowance);
                 allowanceRef.child(id).setValue(save);
                 Toast.makeText(Allowance.this, "Employee Added", Toast.LENGTH_SHORT).show();

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -39,7 +40,8 @@ public class TotalEmployee extends AppCompatActivity {
                 for(DataSnapshot employeeSnapshot:dataSnapshot.getChildren()){
                      Employees employees=employeeSnapshot.getValue(Employees.class);
                      employeesList.add(employees);
-                }
+
+                 }
                 EmployeeList adapter=new EmployeeList(TotalEmployee.this,employeesList);
                 listViewEmployee.setAdapter(adapter);
             }

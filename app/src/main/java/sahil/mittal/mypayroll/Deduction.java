@@ -27,7 +27,7 @@ public class Deduction extends AppCompatActivity {
     Button searchButton, calculateAmount, saveButton;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     DatabaseReference reff, deductionRef;
-    String id, finalDeduction, date;
+    String id, finalDeduction, date,salaryMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +112,7 @@ public class Deduction extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 month = month + 1;
+                salaryMonth=String.valueOf(month);
                 date = month + "/" + day + "/" + year;
                 inputDate.setText(date);
             }
@@ -121,13 +122,14 @@ public class Deduction extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deductionRef = FirebaseDatabase.getInstance().getReference("Deduction");
+                deductionRef = FirebaseDatabase.getInstance().getReference("Deduction").child(salaryMonth);
                 String name = inputName.getText().toString().trim();
                 String email = inputEmail.getText().toString().trim();
                 String deduction = input_Amount.getText().toString().trim();
                 String deductionDate = inputDate.getText().toString().trim();
+                String leaves=input_days.getText().toString().trim();
 
-                saveDeduction saveDeduction = new saveDeduction(id, name, email,deductionDate,deduction);
+                saveDeduction saveDeduction = new saveDeduction(id, name, email,leaves,deductionDate,deduction);
                 deductionRef.child(id).setValue(saveDeduction);
                 Toast.makeText(Deduction.this, "Deduction saved", Toast.LENGTH_SHORT).show();
             }

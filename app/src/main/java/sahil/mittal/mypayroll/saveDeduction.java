@@ -2,7 +2,7 @@ package sahil.mittal.mypayroll;
 
 public class saveDeduction {
 
-    String id,name,email,deductionDate,deduction;
+    String id,name,email,deductionDate,deduction,leaves;
 
     public saveDeduction() {
     }
@@ -15,6 +15,13 @@ public class saveDeduction {
         this.id = id;
     }
 
+    public String getLeaves() {
+        return leaves;
+    }
+
+    public void setLeaves(String leaves) {
+        this.leaves = leaves;
+    }
 
     public String getName() {
         return name;
@@ -48,13 +55,13 @@ public class saveDeduction {
         this.deduction = deduction;
     }
 
-    public saveDeduction(String id, String name, String email, String deductionDate, String deduction) {
+    public saveDeduction(String id, String name, String email, String leaves,String deductionDate, String deduction) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.deductionDate = deductionDate;
         this.deduction = deduction;
-
+        this.leaves=leaves;
 
     }
 }

@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
     implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.itextpdf:itextg:5.5.10'
 }
