@@ -30,7 +30,7 @@ public class Dashboard extends AppCompatActivity {
     private static final int CHOOSE_IMAGE = 101;
     private ImageView adminImage;
     private TextView adminName;
-    private CardView manage_Card,search_Card,total_Card,payroll_Card,salaryCard;
+    private CardView manage_Card,search_Card,total_Card,payroll_Card,salaryCard,payslipCard;
 
     Uri uriProfileImage;
     DatabaseReference reff;
@@ -50,6 +50,7 @@ public class Dashboard extends AppCompatActivity {
         total_Card=findViewById(R.id.Total_card);
         payroll_Card=findViewById(R.id.payroll_card);
         salaryCard=findViewById(R.id.salary_card);
+        payslipCard=findViewById(R.id.Payslip_card);
 
         manage_Card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +97,17 @@ public class Dashboard extends AppCompatActivity {
                 customType(Dashboard.this,"fadein-to-fadeout");
             }
         });
+
+
+        payslipCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashboard.this, SalarySlip.class);
+                startActivity(intent);
+                customType(Dashboard.this,"fadein-to-fadeout");
+            }
+        });
+
 
 
     }

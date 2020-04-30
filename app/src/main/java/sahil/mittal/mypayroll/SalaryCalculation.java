@@ -21,7 +21,7 @@ public class SalaryCalculation extends AppCompatActivity {
     Spinner inputMonth;
     EditText Searchid, getid, getname, getpost, getsalary, gethra, getda, getmedical, getbonus, getallowance, getdeduction, getdays;
     Button saveButton, searchButton;
-    String id, date, name, post,email, salary,da,hra,bonus,medical,allowance,leaves,deduction;
+    String id, date, name, post,email, salary,da,hra,bonus,medical,allowance,leaves,deduction,department;
     DatabaseReference employeeRef,postRef, allowanceRef, deductionRef,salaryRef;
     private static final String TAG = "SalaryCalculation";
 
@@ -69,6 +69,7 @@ public class SalaryCalculation extends AppCompatActivity {
                                 post=dataSnapshot.child("post").getValue().toString();
                                 salary = dataSnapshot.child("salary").getValue().toString();
                                 email=dataSnapshot.child("email").getValue().toString();
+                                department=dataSnapshot.child("department").getValue().toString();
 
                                 int monthlySalary = Integer.parseInt(salary);
                                 monthlySalary = monthlySalary / 12;
@@ -169,7 +170,8 @@ public class SalaryCalculation extends AppCompatActivity {
                         allowance=getallowance.getText().toString().trim();
                         leaves=getdays.getText().toString().trim();
                         deduction=getdeduction.getText().toString().trim();
-                        saveSalary save_salary=new saveSalary(id,name,post,email,salary,da,hra,bonus,medical,allowance,leaves,deduction);
+
+                        saveSalary save_salary=new saveSalary(id,department,name,post,email,salary,da,hra,bonus,medical,allowance,leaves,deduction);
                         salaryRef.child(id).setValue(save_salary);
                         Toast.makeText(SalaryCalculation.this, "Data Saved", Toast.LENGTH_SHORT).show();
                     }

@@ -1,12 +1,12 @@
 package sahil.mittal.mypayroll;
 
 public class saveSalary {
-    String id,name,post,email,salary,da,hra,bonus,medical,allowance,leaves,deduction;
+    String id,name,post,email,salary,da,hra,bonus,medical,allowance,leaves,deduction,department;
 
     public saveSalary() {
     }
 
-    public saveSalary(String id, String name, String post, String email, String salary, String da, String hra, String bonus, String medical, String allowance, String leaves, String deduction) {
+    public saveSalary(String id, String department,String name, String post, String email, String salary, String da, String hra, String bonus, String medical, String allowance, String leaves, String deduction) {
         this.id = id;
         this.name = name;
         this.post = post;
@@ -19,7 +19,9 @@ public class saveSalary {
         this.allowance = allowance;
         this.leaves = leaves;
         this.deduction = deduction;
+        this.department=department;
     }
+
 
     public String getId() {
         return id;
@@ -115,5 +117,13 @@ public class saveSalary {
 
     public void setDeduction(String deduction) {
         this.deduction = deduction;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
